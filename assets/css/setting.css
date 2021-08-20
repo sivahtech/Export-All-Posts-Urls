@@ -1,0 +1,59 @@
+.shmainwrapper{
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-flex-wrap:wrap;
+	-ms-flex-wrap:wrap;
+	flex-wrap:wrap;
+	overflow:hidden;
+}
+#shmainontainer {
+	width:100%;
+	margin-bottom:0;
+}
+#eauSideContainer {
+	width:24%;
+}
+#eauSideContainer .postbox:first-child { 
+	margin-left:20px;
+	padding-top:15px;
+}
+.shcolumns {
+	float:left;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	margin-top:5px;
+}
+#shmainontainer .inside {
+    width: 100%;
+}
+table#allurlsettingtable {
+    width: 100%;
+}
+#allurlsettingtable td {
+    text-align: left;
+}
+.maincontentplugin h2 {
+    text-align: left;
+    text-transform: uppercase;
+}
+#allurlsettingtable th {
+    text-transform: capitalize;
+}
+#allurlsettingtable tr {
+    
+    height: 100px;
+}
+td.submitrow {
+    text-align: center !important;
+}
+h2.center {
+    text-align: center;
+    text-transform: uppercase;
+	font-weight:bold;
+}
+span.bold {
+    font-weight: bold;
+    font-size: 15px;
+}
