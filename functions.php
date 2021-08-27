@@ -1,5 +1,5 @@
 <?php
-function sh_your_post_selected($post_type, $custom_posts_names)
+function sh_epua_your_post_selected($post_type, $custom_posts_names)
 {
 
     switch ($post_type) {
@@ -37,7 +37,7 @@ function sh_your_post_selected($post_type, $custom_posts_names)
 	
 
 }
-function sh_print_output($output,$selected_post_type){
+function sh_epua_print_output($output,$selected_post_type){
 	?>
 	<div class="mainrow">
 	
@@ -46,7 +46,7 @@ function sh_print_output($output,$selected_post_type){
 	if( $the_query->have_posts()){
 		$count = $the_query->found_posts; 
 	?>
-	<h2 class="center"><?php echo $count."   ".$selected_post_type ?> Found</h2>
+	<h2 class="center"><?php echo esc_html($count.$selected_post_type); ?> Found</h2>
 	<table class="postdetails" id="postdetails">
 	<thead>
 	<th>SR NO</th>
@@ -62,10 +62,10 @@ function sh_print_output($output,$selected_post_type){
 	?>
 	
 		<tr>
-		<td><?php echo $i; ?></td>
-		<td><?php echo get_the_title(get_the_ID()); ?></td>
-		<td><?php echo get_permalink(get_the_ID()); ?></td>
-		<td><?php echo $post_date = get_the_date( 'Y/m/d  H:i:s A' );  ?></td>
+		<td><?php echo esc_html($i); ?></td>
+		<td><?php echo esc_html(get_the_title(get_the_ID())); ?></td>
+		<td><?php echo esc_url(get_permalink(get_the_ID())); ?></td>
+		<td><?php echo esc_html(get_the_date( 'Y/m/d  H:i:s A' ));  ?></td>
 		</tr>
 	
 	<?php	

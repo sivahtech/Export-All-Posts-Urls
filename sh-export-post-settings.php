@@ -1,6 +1,6 @@
 <?php
 require_once(plugin_dir_path(__FILE__) . 'functions.php');
-function sh_plugin_html()
+function sh_epua_plugin_html()
 {
 	
 	$custom_posts_names = array();
@@ -76,21 +76,27 @@ function sh_plugin_html()
 if (isset($_POST['export'])) {
 	
 	if (!empty($_POST['selected_post_type'])){
-		$post_type = $_POST['selected_post_type'];
-		$offset = 'all';
-        $post_per_page = 'all';
-		$selected_post_type = sh_your_post_selected($post_type, $custom_posts_names);
-		
-		
-		$args =array(
-			'post_type' => $selected_post_type,
-			'posts_per_page' => -1,
+		$allowed_values = ['page', 'post'];
+		if(in_array($_POST['selected_post_type'],$allowed_values )){
+			$post_type = sanitize_text_field($_POST['selected_post_type']);
+			$offset = 'all';
+			$post_per_page = 'all';
+			$selected_post_type = sh_epua_your_post_selected($post_type, $custom_posts_names);
 			
-		);
-		
-		
-		sh_print_output($args,$selected_post_type);
-		
+			
+			$args =array(
+				'post_type' => $selected_post_type,
+				'posts_per_page' => -1,
+				
+			);
+			
+			
+			sh_epua_print_output($args,$selected_post_type);
+		}else{
+			
+			echo "<div class='notice notice-error' style='width: 93%'>Sorry, Please select either page or post! :)</div>";
+			exit;	
+		}
 	}else{
 		echo "<div class='notice notice-error' style='width: 93%'>Sorry, you missed something, Please recheck above options! :)</div>";
 		exit;
@@ -98,4 +104,4 @@ if (isset($_POST['export'])) {
 }
 	
 }
-sh_plugin_html();
+sh_epua_plugin_html();
