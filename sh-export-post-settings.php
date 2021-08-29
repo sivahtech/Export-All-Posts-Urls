@@ -50,7 +50,7 @@ function sh_epua_plugin_html()
 
                                     if (!empty($custom_posts_names) && !empty($custom_posts_labels)) {
                                         for ($i = 0; $i < count($custom_posts_names); $i++) {
-                                            echo '<div class="form-group"><label><input type="radio" name="post-type" value="' . $custom_posts_names[$i] . '" disabled/> ' . $custom_posts_labels[$i] . ' Posts <span class="bold">(Available in pro)</span></label></div>';
+                                            echo '<div class="form-group"><label><input type="radio" name="post-type" value="' . esc_html($custom_posts_names[$i]) . '" disabled/> ' . esc_html($custom_posts_labels[$i]) . ' Posts <span class="bold">(Available in pro)</span></label></div>';
                                         }
                                     }
                                     ?>
